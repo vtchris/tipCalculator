@@ -1,0 +1,21 @@
+body{
+    background-color: gray;
+    font-family: calibri,sans-serif;
+    height: 100%;
+}
+ul{
+    list-style-type: none;
+}
+ul label{
+    display: block;
+    font-weight: bold;
+}
+.currency{
+    text-align: right;
+    
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
