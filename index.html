@@ -13,6 +13,7 @@
     <header>
         <h1>Tip Calculator</h1>
     </header>
+    <label id="message"></label>
     <ul>
         <li>
             <label>Sub-total</label>
@@ -29,6 +30,17 @@
         <li>
             <label>Total</label>
             <input id="total-txt" class="currency" placeholder="0.00" disabled>
+        </li>
+    </ul>
+    <ul>
+        <label>Rounding Options</label>
+        <li>
+            <label for="no-round-rdo">None</label>
+            <input type="radio" id="no-round-rdo" name="rounding" value="1">
+            <label for="no-round-rdo">Round Tip Up</label>
+            <input type="radio" id="tip-round-rdo" name="rounding" value="2" checked="checked">
+            <label for="no-round-rdo">Round Total Up</label>
+            <input type="radio" id="total-round-rdo" name="rounding" value="3">
         </li>
     </ul>
     <ul>
@@ -51,7 +63,7 @@
         <label>Total Per Person</label>
         <li><input id="per-person-txt" class="currency" min="0" placeholder="0.00" disabled></li>
     </ul>
-    
+
     <ul>
         <li>
             <button>Calculate</button>
