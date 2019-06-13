@@ -5,71 +5,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>TIP-4-TAT - Tip Calculator</title>
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 </head>
 
 <body>
     <header>
-        <h1>Tip Calculator</h1>
+        <h1>TIP - 4 - TAT</h1>
     </header>
     <label id="message"></label>
-    <ul>
-        <li>
-            <label>Sub-total</label>
-            <input id="subtotal-txt" type="number" class="currency" placeholder="0.00">
-        </li>
-    </ul>
-    <ul>
-        <li>
-            <label>Tax (not required)</label>
-            <input id="tax-txt" type="number" class="currency" placeholder="0.00">
-        </li>
-    </ul>
-    <ul>
-        <li>
-            <label>Total</label>
-            <input id="total-txt" class="currency" placeholder="0.00" disabled>
-        </li>
-    </ul>
-    <ul>
-        <label>Rounding Options</label>
-        <li>
-            <label for="no-round-rdo">None</label>
-            <input type="radio" id="no-round-rdo" name="rounding" value="1">
-            <label for="no-round-rdo">Round Tip Up</label>
-            <input type="radio" id="tip-round-rdo" name="rounding" value="2" checked="checked">
-            <label for="no-round-rdo">Round Total Up</label>
-            <input type="radio" id="total-round-rdo" name="rounding" value="3">
-        </li>
-    </ul>
-    <ul>
-        <label>Tip %</label>
-        <li><input id="tip-rate-txt" class="currency" min="0" placeholder="15%"></li>
-    </ul>
-    <ul>
-        <label>Tip</label>
-        <li><input id="tip-txt" class="currency" min="0" placeholder="0.00" disabled></li>
-    </ul>
-    <ul>
-        <label>Grand Total</label>
-        <li><input id="grand-total-txt" class="currency" min="1" placeholder="0.00" disabled></li>
-    </ul>
-    <ul>
-        <label>Split</label>
-        <li><input id="split-txt" class="currency" min="1" placeholder="1"></li>
-    </ul>
-    <ul>
-        <label>Total Per Person</label>
-        <li><input id="per-person-txt" class="currency" min="0" placeholder="0.00" disabled></li>
-    </ul>
 
-    <ul>
-        <li>
-            <button>Calculate</button>
-        </li>
-    </ul>
+    <div class="container">
+        <ul>
+            <li>
+                <label>Sub-total</label>
+                <input id="subtotal-txt" type="number" class="currency" placeholder="0.00" onfocus="this.select();">
+            </li>
 
+            <li>
+                <label>Tax (not required)</label>
+                <input id="tax-txt" type="number" class="currency" placeholder="0.00" onfocus="this.select();">
+            </li>
+            <li>
+                <label>Total</label>
+                <input id="total-txt" type="number" class="currency" placeholder="0.00" disabled>
+            </li>
+            <li>
+
+            </li>
+            <li>
+                <label>Tip %</label>
+                <input id="tip-rate-txt" type="number" class="currency" min="0" placeholder=".15"
+                    onfocus="this.select();">
+            </li>
+            <li>
+                <label>Tip</label>
+                <input id="tip-txt" type="number" class="currency" min="0" placeholder="0.00" disabled>
+                <label id="effectiveRate-lbl">Effective Rate:</label>
+            </li>
+            <li>
+                <label>Grand Total</label>
+                <input id="grand-total-txt" type="number" class="currency" min="1" placeholder="0.00" disabled>
+            </li>
+            <li>
+                <label>Split</label>
+                <input id="split-txt" type="number" class="currency" min="1" placeholder="1" maxlength="2"
+                    onfocus="this.select();">
+            </li>
+            <li>
+                <label>Total Per Person</label>
+                <input id="per-person-txt" type="number" class="currency" min="0" placeholder="0.00" disabled>
+            </li>
+            
+        </ul>
+        <div id="options-div">
+            <ul>
+                <li><label>Rounding Options</label></li>
+                <li>
+                    <input type="radio" id="no-round-rdo" name="rounding" value="1">
+                    <label for="no-round-rdo">None</label>
+                </li>
+                <li><input type="radio" id="tip-round-rdo" name="rounding" value="2" checked="checked">
+                    <label for="no-round-rdo">Round Tip Up</label>
+                </li>
+                <li>
+                    <input type="radio" id="total-round-rdo" name="rounding" value="3">
+                    <label for="no-round-rdo">Round Total Up</label>
+                </li>
+            </ul>
+
+
+
+
+        </div>
+    </div>
+
+
+    <!-- FOOTER START-->
+    <footer id="pageFooter">
+        <ul>
+            <li>
+                <h5>JAVASCRIPT &nbsp; &#8226; &nbsp;</h5>
+            </li>
+            <li>
+                <h5>API &nbsp; &#8226; &nbsp;</h5>
+            </li>
+            <li>
+                <h5>HTML/CSS</h5>
+            </li>
+
+        </ul>
+
+        <a href="https://vtchris.github.io/Responsive-Portfolio/" target="_blank"
+            class="btn btn-secondary mb-3 mr-4"><span class="fa fa-address-card pr-2"></span>Portfolio: Chris Ross</a>
+        <a href="https://github.com/vtchris/" target="_blank" class="fab fa-github text-muted mr-4"
+            style="font-size:38px;"></a>
+        <a href="https://www.linkedin.com/in/chris-ross-71a95711/" target="_blank" class="fab fa-linkedin text-muted"
+            style="font-size:38px;"></a>
+
+    </footer>
+    <!-- FOOTER END-->
 
 
 

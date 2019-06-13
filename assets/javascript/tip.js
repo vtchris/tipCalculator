@@ -1,3 +1,7 @@
+//Added background image
+//style header and container
+
+
 //Create our DOM variables
 var subtotal = document.getElementById("subtotal-txt");
 var tax = document.getElementById("tax-txt");
@@ -5,6 +9,7 @@ var total = document.getElementById("total-txt");
 var rounding = document.getElementsByName("rounding");
 var tipRate = document.getElementById("tip-rate-txt");
 var tip = document.getElementById("tip-txt");
+var effectiveRate = document.getElementById("effectiveRate-lbl");
 var split = document.getElementById("split-txt");
 var grandTotal = document.getElementById("grand-total-txt");
 var perPerson = document.getElementById("per-person-txt");
@@ -56,7 +61,6 @@ for (var i = 0; i < rounding.length; i++) {
         calculate_tip();
     })
 }
-
 subtotal.onblur = function () {
 
     if (this.value < 0 || this.value === null || this.value === "") {
@@ -109,19 +113,7 @@ function calculate_tip() {
     message.innerText = count
 
     total.value = parseFloat(parseFloat(subtotal.value) + parseFloat(tax.value)).toFixed(2);
-    
-    //Determine which rounding option is selected
-    // for (var i = 0; i < rounding.length; i++) {
         
-    //     if (rounding[i].checked) {
-    //         round = rounding[i].value;
-
-    //         if(preferredRound !== round){
-    //             localStorage.setItem("rounding", round)
-    //         }
-    //     }
-    // }
-
     let myTip = parseFloat(subtotal.value) * parseFloat(tipRate.value);
     let myGrandTotal = parseFloat(total.value) + parseFloat(myTip);
 
@@ -142,20 +134,11 @@ function calculate_tip() {
             }
     }
 
-
-
-
-
     let myPerPerson = parseFloat(parseFloat(myGrandTotal) / parseFloat(split.value)).toFixed(2);
 
     if (split.value > 1) {
         //debugger
         if ((parseFloat(myPerPerson) * parseInt(split.value)) !== parseFloat(myGrandTotal)) {
-            //myTip = Math.ceil(parseFloat(myTip + .01) * 100)/100  
-
-            // myTip = parseFloat(myTip) + .01
-            // myTip = Math.ceil(myTip * 100) 
-            // myTip = parseFloat(myTip/100).toFixed(2);
             myPerPerson = parseFloat(myPerPerson) + .01
             myPerPerson = Math.ceil(myPerPerson * 100)
             myPerPerson = parseFloat(myPerPerson / 100).toFixed(2);
@@ -163,35 +146,24 @@ function calculate_tip() {
             myTip = myGrandTotal - total.value;
 
         }
-
     }
 
-
     myTip = parseFloat(myTip).toFixed(2);
-    myGrandTotal = myGrandTotal.toFixed(2);
+    myGrandTotal = parseFloat(myGrandTotal).toFixed(2);
 
     tip.value = myTip;
     grandTotal.value = myGrandTotal;
     perPerson.value = myPerPerson
 
-    
+    var myEffectiveRate = parseFloat(myTip/subtotal.value).toFixed(2) * 100
 
+    effectiveRate.innerText = "Effective Rate: " + myEffectiveRate + "%"
+    
+    //For testing, in case the totals don't foot correctly
     if ((parseFloat(total.value) + parseFloat(myTip)).toFixed(2) != parseFloat(myGrandTotal) || (parseFloat(parseFloat(myPerPerson) * parseFloat(split.value)).toFixed(2) != parseFloat(myGrandTotal))){
 
         alert("Houston, we have a problem")
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
