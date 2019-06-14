@@ -1,7 +1,15 @@
 <h1>Tip Calculator</h1>
+<hr>
 
 Visit online:
 https://vtchris.github.io/tipCalculator/
+
+<h3>Technology</h3>
+<hr>
+<ul>
+  <li>JavaScript</li>
+  <li>HTML/CSS</li> 
+</ul>
 
 <p>The requirements for this application include the following:</p>
 <ul>
