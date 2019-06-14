@@ -1,7 +1,3 @@
-//Added background image
-//style header and container
-
-
 //Create our DOM variables
 var subtotal = document.getElementById("subtotal-txt");
 var tax = document.getElementById("tax-txt");

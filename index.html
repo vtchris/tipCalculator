@@ -16,51 +16,72 @@
     <label id="message"></label>
 
     <div class="container">
-        <ul>
-            <li>
-                <label>Sub-total</label>
-                <input id="subtotal-txt" type="number" class="currency" placeholder="0.00" onfocus="this.select();">
-            </li>
 
-            <li>
-                <label>Tax (not required)</label>
-                <input id="tax-txt" type="number" class="currency" placeholder="0.00" onfocus="this.select();">
-            </li>
-            <li>
-                <label>Total</label>
-                <input id="total-txt" type="number" class="currency" placeholder="0.00" disabled>
-            </li>
-            <li>
-
-            </li>
-            <li>
-                <label>Tip %</label>
-                <input id="tip-rate-txt" type="number" class="currency" min="0" placeholder=".15"
-                    onfocus="this.select();">
-            </li>
-            <li>
-                <label>Tip</label>
-                <input id="tip-txt" type="number" class="currency" min="0" placeholder="0.00" disabled>
-                <label id="effectiveRate-lbl">Effective Rate:</label>
-            </li>
-            <li>
-                <label>Grand Total</label>
-                <input id="grand-total-txt" type="number" class="currency" min="1" placeholder="0.00" disabled>
-            </li>
-            <li>
-                <label>Split</label>
-                <input id="split-txt" type="number" class="currency" min="1" placeholder="1" maxlength="2"
-                    onfocus="this.select();">
-            </li>
-            <li>
-                <label>Total Per Person</label>
-                <input id="per-person-txt" type="number" class="currency" min="0" placeholder="0.00" disabled>
-            </li>
-            
-        </ul>
-        <div id="options-div">
+        <div id="Calculator">
             <ul>
-                <li><label>Rounding Options</label></li>
+                <li>
+                    <label>Sub-total</label>
+                    <input id="subtotal-txt" type="number" class="currency" placeholder="0.00" onfocus="this.select();">
+                </li>
+
+                <li>
+                    <label>Tax (not required)</label>
+                    <input id="tax-txt" type="number" class="currency" placeholder="0.00" onfocus="this.select();">
+                </li>
+                <li>
+                    <label>Total</label>
+                    <input id="total-txt" type="number" class="currency" placeholder="0.00" disabled>
+                </li>
+                <li>
+                    <label>Tip %</label>
+                    <input id="tip-rate-txt" type="number" class="currency" min="0" placeholder=".15"
+                        onfocus="this.select();">
+                </li>
+                <li>
+                    <label>Tip</label>
+                    <input id="tip-txt" type="number" class="currency" min="0" placeholder="0.00" disabled>
+                    <label id="effectiveRate-lbl">Effective Rate:</label>
+                </li>
+                <li>
+                    <label>Grand Total</label>
+                    <input id="grand-total-txt" type="number" class="currency" min="1" placeholder="0.00" disabled>
+                </li>
+                <li>
+                    <label>Split</label>
+                    <input id="split-txt" type="number" class="currency" min="1" placeholder="1" maxlength="2"
+                        onfocus="this.select();">
+                </li>
+                <li>
+                    <label>Total Per Person</label>
+                    <input id="per-person-txt" type="number" class="currency" min="0" placeholder="0.00" disabled>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div id="totals-div">
+            <ul>
+                <li>
+                    <label>Total</label>
+                </li>
+                <li>
+                        <label>Tip</label>
+                </li>
+                <li>
+                        <label>Grand Total</label>
+                </li>
+                <li>
+                        <label>Per Person</label>
+                </li>
+            </ul>
+
+        </div>
+
+        <div id="options-div">
+                <h4>Rounding Options</h4>
+            <ul>
+               
                 <li>
                     <input type="radio" id="no-round-rdo" name="rounding" value="1">
                     <label for="no-round-rdo">None</label>
@@ -78,6 +99,7 @@
 
 
         </div>
+        <span class="stretch"></span>
     </div>
 
 

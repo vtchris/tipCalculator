@@ -21,11 +21,14 @@ footer{
 footer li{
     display:inline-block;
 }
-footer ul, h5{
-    margin:3px;
+footer ul{
+    display:block;    
+    margin:auto;
+    max-width: 600px;
+    min-width:500px;
 }
-input{
-    padding:5px;
+footer h5{
+    margin:3px;
 }
 header{
     background-color:black;
@@ -41,6 +44,9 @@ h1{
     margin-bottom:10px;
     padding: 20px;
 }
+input{
+    padding:5px;
+}
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
@@ -49,35 +55,57 @@ input[type=number]::-webkit-outer-spin-button {
 input[type="radio"] {
     vertical-align: middle;
 }
+ul{
+    display:inline-block;
+    list-style-type: none; 
+    margin:0px;
+    max-width: 225px;
+    min-width:200px;
+    padding:0px;        
+}
 ul label{
     display: block;
     font-weight: bold;
 }
 .container{
     background-color:white;
-    border-radius:6px;
+    border-radius:6px;       
     margin:auto;
+    min-width: 230px; 
     padding: 10px;
-    width:60%;    
+    text-align: justify;
+    text-justify: distribute-all-lines;
+    width:60%;       
+}
+.container div{
+    display: inline-block;
+    margin:10px;
+    padding: 15px;
+    vertical-align: top;   
 }
 .container li{
     margin-bottom:8px;
 }
-.container ul{
-    display:inline-block;
-    list-style-type: none;
-    min-width:200px;
-    max-width: 225px;   
+.container h4{
+    margin:2px;
+    margin-bottom:10px;
 }
 .currency{
     text-align: right;    
 }
-#options-div{
-    border: solid 1px grey;
+.stretch {
     display: inline-block;
-    float:right;
+    font-size: 0;
+    line-height: 0;   
+    width: 100%;   
+}
+#options-div{
+    border: solid 1px #d9d9d9;
+    border-radius:6px;
+    height:125px;
     max-width: 200px;  
 }
 #options-div label{
-    display: inline;    
+    display: inline;   
+    font-weight: normal;     
 }
