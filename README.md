@@ -1,5 +1,8 @@
 <h1>Tip Calculator</h1>
 
+Visit online:
+https://vtchris.github.io/tipCalculator/
+
 <p>The requirements for this application include the following:</p>
 <ul>
   <li>Take in the value of the bill</li>
