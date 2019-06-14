@@ -7,9 +7,9 @@ body{
     padding: 0;    
 }
 footer{
-    background-color:black;
+    background-color:#343A40;
     border-top: solid 2px #80ff80;
-    color:grey;
+    color:#6C757D;
     font-family: "Lucinda Sans",sans-serif;
     font-size:25px;
     margin:0;
@@ -31,15 +31,18 @@ footer h5{
     margin:3px;
 }
 header{
-    background-color:black;
-    background: linear-gradient(black 87%,#80ff80);
+    background-color:#343A40;
+    background: linear-gradient(#343A40 87%,#80ff80);
     font-family: "Lucinda Sans",sans-serif;
     font-size:25px;
     margin:0;
     text-align: center;
 }
-h1{
-    color:gray;
+header h1{
+    color:#6C757D;;
+}
+h1{    
+    font-size: 45px;
     margin:0;
     margin-bottom:10px;
     padding: 20px;
@@ -93,11 +96,26 @@ ul label{
 .currency{
     text-align: right;    
 }
+.display_none{
+    display: none;
+}
+.dollar:before {
+    content: '$';
+}
 .stretch {
     display: inline-block;
     font-size: 0;
     line-height: 0;   
     width: 100%;   
+}
+#footer-link-div{
+    color:#6C757D;
+}
+#footer-link-div a{
+    color:#6C757D;
+    font-size:20px;
+    margin:8px;
+    text-decoration: none;
 }
 #options-div{
     border: solid 1px #d9d9d9;
@@ -108,4 +126,27 @@ ul label{
 #options-div label{
     display: inline;   
     font-weight: normal;     
+}
+#totals-div h1{
+    padding-left:0px;
+    padding-top:3px;
+    text-align: right;
+}
+#totals-div h2{
+    padding-left:0px;
+    padding-right:20px;
+    padding-top:3px;
+    text-align: right;
+}
+#totals-div h3{
+    margin:0px;
+}
+@media screen and (max-width:812px){
+    .container{
+        
+        width:70%;        
+        margin-bottom: 100px;        
+    }
+    
+    
 }

@@ -9,6 +9,11 @@ var effectiveRate = document.getElementById("effectiveRate-lbl");
 var split = document.getElementById("split-txt");
 var grandTotal = document.getElementById("grand-total-txt");
 var perPerson = document.getElementById("per-person-txt");
+var displayTotal = document.getElementById("total-h");
+var displayTip = document.getElementById("tip-h");
+var displayGrandTotal = document.getElementById("grandtotal-h");
+var displayPerPerson = document.getElementById("perperson-h");
+var displayPerPersonSection = document.getElementById("perperson-display");
 
 //Create Global variables
 var round = "";
@@ -151,9 +156,22 @@ function calculate_tip() {
     grandTotal.value = myGrandTotal;
     perPerson.value = myPerPerson
 
+    displayTotal.innerText = total.value;
+    displayTip.innerText = myTip;
+    displayGrandTotal.innerText = myGrandTotal;
+    displayPerPerson.innerText = myPerPerson;
+
+    debugger
+    if(split.value > "1"){
+        displayPerPersonSection.classList.remove("display_none");
+        
+    }else{
+        displayPerPersonSection.classList.add("display_none");
+    }
+
     var myEffectiveRate = parseFloat(myTip/subtotal.value).toFixed(2) * 100
 
-    effectiveRate.innerText = "Effective Rate: " + myEffectiveRate + "%"
+    effectiveRate.innerText = "Effective Rate: " + parseFloat(myEffectiveRate).toFixed(2) + "%"
     
     //For testing, in case the totals don't foot correctly
     if ((parseFloat(total.value) + parseFloat(myTip)).toFixed(2) != parseFloat(myGrandTotal) || (parseFloat(parseFloat(myPerPerson) * parseFloat(split.value)).toFixed(2) != parseFloat(myGrandTotal))){
