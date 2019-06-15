@@ -70,10 +70,11 @@ ul label{
 }
 .container{
     background-color:white;
-    border-radius:6px;       
+    border-radius:6px;   
+    box-shadow: 10px 10px #929b7d;    
     margin:auto;
     min-width: 230px; 
-    padding: 10px;
+    padding: 10px;    
     text-align: justify;
     text-justify: distribute-all-lines;
     width:60%;       
@@ -118,8 +119,13 @@ ul label{
     text-decoration: none;
 }
 #joke-div{
-    padding:0px;
-    text-align: left;
+    border: solid 1px #d9d9d9;
+    border-radius: 6px;
+    box-shadow: 5px 5px #abb3ba;
+    margin:0px;
+    padding:8px;
+    padding-bottom: 15px;
+    padding-top:15px;    
 }
 #options-div{
     border: solid 1px #d9d9d9;

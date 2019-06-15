@@ -15,20 +15,19 @@
     <header>
         <h1>TIP - 4 - TAT</h1>
     </header>
-    <label id="message"></label>
-
+    
     <div class="container">
 
         <div id="Calculator">
             <ul>
                 <li>
                     <label>Sub-total</label>
-                    <input id="subtotal-txt" type="number" class="currency" placeholder="0.00" onfocus="this.select();">
+                    <input id="subtotal-txt" type="number" class="currency" maxlength="7" placeholder="0.00" onfocus="this.select();this.setSelectionRange(0, 9999);">
                 </li>
 
                 <li>
                     <label>Tax (not required)</label>
-                    <input id="tax-txt" type="number" class="currency" placeholder="0.00" onfocus="this.select();">
+                    <input id="tax-txt" type="number" class="currency" maxlength="6" placeholder="0.00"  onfocus="this.select();">
                 </li>
                 <li>
                     <label>Total</label>
@@ -36,13 +35,13 @@
                 </li>
                 <li>
                     <label>Tip %</label>
-                    <input id="tip-rate-txt" type="number" class="currency" min="0" placeholder=".15"
+                    <input id="tip-rate-txt" type="number" class="currency" maxlength="4" min="0" placeholder=".15"
                         onfocus="this.select();">
                 </li>
                 <li>
                     <label>Tip</label>
                     <input id="tip-txt" type="number" class="currency" min="0" placeholder="0.00" disabled>
-                    <label id="effectiveRate-lbl">Effective Rate:</label>
+
                 </li>
                 <li>
                     <label>Grand Total</label>
@@ -56,6 +55,9 @@
                 <li>
                     <label>Total Per Person</label>
                     <input id="per-person-txt" type="number" class="currency" min="0" placeholder="0.00" disabled>
+                </li>
+                <li>
+                    <label id="message"></label>
                 </li>
 
             </ul>
@@ -83,8 +85,11 @@
                     <h3>PER PERSON</h3>
                     <h1 id="perperson-h" class="dollar"></h1>
                 </li>
-                <li style="margin-top:40px;text-align: left;">
-                    <h4 id="joke-h"></h4>
+                <li style="margin-top:15px;text-align:center">
+                    <div id="joke-div">
+                        <span class="fa fa-quote-left" style="color:#6C757D"></span>
+                        <h3 id="joke-h"></h3>
+                    </div>
                 </li>
             </ul>
 
@@ -104,6 +109,9 @@
                 <li>
                     <input type="radio" id="total-round-rdo" name="rounding" value="3">
                     <label for="no-round-rdo">Round Total Up</label>
+                </li>
+                <li>
+                    <h4 id="effectiveRate-h">Effective Tip Rate:</h4>
                 </li>
             </ul>
 

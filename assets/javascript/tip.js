@@ -5,7 +5,7 @@ var total = document.getElementById("total-txt");
 var rounding = document.getElementsByName("rounding");
 var tipRate = document.getElementById("tip-rate-txt");
 var tip = document.getElementById("tip-txt");
-var effectiveRate = document.getElementById("effectiveRate-lbl");
+var effectiveRate = document.getElementById("effectiveRate-h");
 var split = document.getElementById("split-txt");
 var grandTotal = document.getElementById("grand-total-txt");
 var perPerson = document.getElementById("per-person-txt");
@@ -172,7 +172,7 @@ function calculate_tip() {
     var myEffectiveRate = parseFloat(myTip/subtotal.value).toFixed(2) * 100
 
     if(!isNaN(myEffectiveRate)){
-        effectiveRate.innerText = "Effective Rate: " + parseFloat(myEffectiveRate).toFixed(2) + "%"
+        effectiveRate.innerText = "Effective Tip Rate: " + parseFloat(myEffectiveRate).toFixed(2) + "%"
     }
     
     
