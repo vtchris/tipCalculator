@@ -24,8 +24,7 @@ footer li{
 footer ul{
     display:block;    
     margin:auto;
-    max-width: 600px;
-    min-width:500px;
+    width:100%;
 }
 footer h5{
     margin:3px;
@@ -62,8 +61,7 @@ ul{
     display:inline-block;
     list-style-type: none; 
     margin:0px;
-    max-width: 225px;
-    min-width:200px;
+    width:100%;
     padding:0px;        
 }
 ul label{
@@ -83,6 +81,8 @@ ul label{
 .container div{
     display: inline-block;
     margin:10px;
+    max-width: 200px;
+    min-width: 175px;
     padding: 15px;
     vertical-align: top;   
 }
@@ -117,6 +117,10 @@ ul label{
     margin:8px;
     text-decoration: none;
 }
+#joke-div{
+    padding:0px;
+    text-align: left;
+}
 #options-div{
     border: solid 1px #d9d9d9;
     border-radius:6px;
@@ -141,10 +145,21 @@ ul label{
 #totals-div h3{
     margin:0px;
 }
-@media screen and (max-width:812px){
+@media screen and (max-width:376px){
+    footer h5{
+        font-size:18px;
+    }
     .container{
         
         width:70%;        
+        margin-bottom: 100px;        
+    }
+    
+    
+}
+@media screen and (max-width:668px) and (orientation:landscape){
+    .container{
+        width:75%;        
         margin-bottom: 100px;        
     }
     

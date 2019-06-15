@@ -14,6 +14,7 @@ var displayTip = document.getElementById("tip-h");
 var displayGrandTotal = document.getElementById("grandtotal-h");
 var displayPerPerson = document.getElementById("perperson-h");
 var displayPerPersonSection = document.getElementById("perperson-display");
+var displayJoke = document.getElementById("joke-h");
 
 //Create Global variables
 var round = "";
@@ -160,8 +161,7 @@ function calculate_tip() {
     displayTip.innerText = myTip;
     displayGrandTotal.innerText = myGrandTotal;
     displayPerPerson.innerText = myPerPerson;
-
-    debugger
+   
     if(split.value > "1"){
         displayPerPersonSection.classList.remove("display_none");
         
@@ -171,7 +171,10 @@ function calculate_tip() {
 
     var myEffectiveRate = parseFloat(myTip/subtotal.value).toFixed(2) * 100
 
-    effectiveRate.innerText = "Effective Rate: " + parseFloat(myEffectiveRate).toFixed(2) + "%"
+    if(!isNaN(myEffectiveRate)){
+        effectiveRate.innerText = "Effective Rate: " + parseFloat(myEffectiveRate).toFixed(2) + "%"
+    }
+    
     
     //For testing, in case the totals don't foot correctly
     if ((parseFloat(total.value) + parseFloat(myTip)).toFixed(2) != parseFloat(myGrandTotal) || (parseFloat(parseFloat(myPerPerson) * parseFloat(split.value)).toFixed(2) != parseFloat(myGrandTotal))){
@@ -181,3 +184,26 @@ function calculate_tip() {
     }
 
 }
+//API call for a joke
+let joke = {}
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://joke3.p.rapidapi.com/v1/joke');
+xhr.setRequestHeader("X-RapidAPI-Key", "f204a6af09msh4b9848f8978842ap1a687djsnafe71a174e45");
+xhr.send(null);
+xhr.onreadystatechange = function () {
+    var DONE = 4; // readyState 4 means the request is done.
+    var OK = 200; // status 200 is a successful return.
+    if (xhr.readyState === DONE) {
+      if (xhr.status === OK) {
+        //console.log(xhr.responseText);         
+        joke = JSON.parse(xhr.response)     
+        //alert(joke.content)
+        displayJoke.innerText = joke.content;
+        console.log(joke)
+        
+      } else {
+        console.log('Error: ' + xhr.status); // An error occurred during the request.
+      }
+    }
+  };
