@@ -68,6 +68,13 @@ ul label{
     display: block;
     font-weight: bold;
 }
+.animate-top{   
+    position:relative;
+    animation:animatetop 0.9s
+}
+.animate-fadeIn{
+    animation:fading 10s;
+}
 .container{
     background-color:white;
     border-radius:6px;   
@@ -98,7 +105,7 @@ ul label{
     text-align: right;    
 }
 .display_none{
-    display: none;
+    display: none!important;
 }
 .dollar:before {
     content: '$';
@@ -119,6 +126,7 @@ ul label{
     text-decoration: none;
 }
 #joke-div{
+    background-color: #e6f3ff;
     border: solid 1px #d9d9d9;
     border-radius: 6px;
     box-shadow: 5px 5px #abb3ba;
@@ -130,12 +138,15 @@ ul label{
 #options-div{
     border: solid 1px #d9d9d9;
     border-radius:6px;
-    height:125px;
+    height:auto;
     max-width: 200px;  
 }
 #options-div label{
     display: inline;   
     font-weight: normal;     
+}
+#totals-div{
+    min-width:200px;
 }
 #totals-div h1{
     padding-left:0px;
@@ -163,6 +174,12 @@ ul label{
     
     
 }
+@keyframes animatetop{
+    from{top:-300px;opacity:0} 
+    to{top:0;opacity:1}
+}
+@keyframes fading{0%{opacity:0}100%{opacity:1}}
+
 @media screen and (max-width:668px) and (orientation:landscape){
     .container{
         width:75%;        

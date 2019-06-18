@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <h1>TIP - 4 - TAT</h1>
+        <h1 class="animate-top">TIP - 4 - TAT</h1>
     </header>
     
     <div class="container">
@@ -27,7 +27,7 @@
 
                 <li>
                     <label>Tax (not required)</label>
-                    <input id="tax-txt" type="number" class="currency" maxlength="6" placeholder="0.00"  onfocus="this.select();">
+                    <input id="tax-txt" type="number" class="currency" maxlength="6" placeholder="0.00"  onfocus="this.select();this.setSelectionRange(0, 9999);">
                 </li>
                 <li>
                     <label>Total</label>
@@ -36,7 +36,7 @@
                 <li>
                     <label>Tip %</label>
                     <input id="tip-rate-txt" type="number" class="currency" maxlength="4" min="0" placeholder=".15"
-                        onfocus="this.select();">
+                        onfocus="this.select();this.setSelectionRange(0, 9999);">
                 </li>
                 <li>
                     <label>Tip</label>
@@ -50,7 +50,7 @@
                 <li>
                     <label>Split</label>
                     <input id="split-txt" type="number" class="currency" min="1" placeholder="1" maxlength="2"
-                        onfocus="this.select();">
+                        onfocus="this.select();this.setSelectionRange(0, 9999);">
                 </li>
                 <li>
                     <label>Total Per Person</label>
@@ -86,7 +86,7 @@
                     <h1 id="perperson-h" class="dollar"></h1>
                 </li>
                 <li style="margin-top:15px;text-align:center">
-                    <div id="joke-div">
+                    <div id="joke-div" class="display_none">
                         <span class="fa fa-quote-left" style="color:#6C757D"></span>
                         <h3 id="joke-h"></h3>
                     </div>

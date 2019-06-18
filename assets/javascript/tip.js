@@ -15,6 +15,7 @@ var displayGrandTotal = document.getElementById("grandtotal-h");
 var displayPerPerson = document.getElementById("perperson-h");
 var displayPerPersonSection = document.getElementById("perperson-display");
 var displayJoke = document.getElementById("joke-h");
+var jokeDiv = document.getElementById("joke-div");
 
 //Create Global variables
 var round = "";
@@ -110,9 +111,14 @@ split.onblur = function () {
 }
 function calculate_tip() {
 
+    //Do not continue if there is no amounts to total
+    if (parseFloat(subtotal.value) + parseFloat(tax.value) === 0){
+        return
+    }
+
     //temp counter for testing
-    count++
-    message.innerText = count
+    // count++
+    // message.innerText = count
 
     total.value = parseFloat(parseFloat(subtotal.value) + parseFloat(tax.value)).toFixed(2);
         
@@ -124,12 +130,14 @@ function calculate_tip() {
 
             break;
         case "2":
+            //Round tip up to nearest dollar
             if (!Number.isInteger(myTip)) {
                 myTip = parseFloat(Math.ceil(myTip));
                 myGrandTotal = parseFloat(total.value) + parseFloat(myTip)
             }
             break;
         case "3":
+            //Round grand total up to nearest dollar
             if (!Number.isInteger(myGrandTotal)) {
                 myGrandTotal = parseFloat(Math.ceil(myGrandTotal));
                 myTip = parseFloat(myGrandTotal) - parseFloat(total.value)
@@ -139,7 +147,8 @@ function calculate_tip() {
     let myPerPerson = parseFloat(parseFloat(myGrandTotal) / parseFloat(split.value)).toFixed(2);
 
     if (split.value > 1) {
-        //debugger
+        //If grand total cannot be evenly divided by the split, add .01 to each persons 
+        //total and apply the difference to the tip.
         if ((parseFloat(myPerPerson) * parseInt(split.value)) !== parseFloat(myGrandTotal)) {
             myPerPerson = parseFloat(myPerPerson) + .01
             myPerPerson = Math.ceil(myPerPerson * 100)
@@ -161,7 +170,8 @@ function calculate_tip() {
     displayTip.innerText = myTip;
     displayGrandTotal.innerText = myGrandTotal;
     displayPerPerson.innerText = myPerPerson;
-   
+
+    //Only display the per person amount when appropriate   
     if(split.value > "1"){
         displayPerPersonSection.classList.remove("display_none");
         
@@ -169,6 +179,7 @@ function calculate_tip() {
         displayPerPersonSection.classList.add("display_none");
     }
 
+    //Determine effective tip rate resulting from above rounding
     var myEffectiveRate = parseFloat(myTip/subtotal.value).toFixed(2) * 100
 
     if(!isNaN(myEffectiveRate)){
@@ -177,11 +188,11 @@ function calculate_tip() {
     
     
     //For testing, in case the totals don't foot correctly
-    if ((parseFloat(total.value) + parseFloat(myTip)).toFixed(2) != parseFloat(myGrandTotal) || (parseFloat(parseFloat(myPerPerson) * parseFloat(split.value)).toFixed(2) != parseFloat(myGrandTotal))){
+    // if ((parseFloat(total.value) + parseFloat(myTip)).toFixed(2) != parseFloat(myGrandTotal) || (parseFloat(parseFloat(myPerPerson) * parseFloat(split.value)).toFixed(2) != parseFloat(myGrandTotal))){
 
-        alert("Houston, we have a problem")
+    //     alert("Houston, we have a problem")
 
-    }
+    // }
 
 }
 //API call for a joke
@@ -201,6 +212,9 @@ xhr.onreadystatechange = function () {
         //alert(joke.content)
         displayJoke.innerText = joke.content;
         console.log(joke)
+
+       jokeDiv.classList.remove("display_none");
+       jokeDiv.classList.add("animate-fadeIn");
         
       } else {
         console.log('Error: ' + xhr.status); // An error occurred during the request.
