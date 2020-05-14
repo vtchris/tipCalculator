@@ -1,3 +1,5 @@
+document.cookie = 'cross-site-cookie=bar; SameSite=Strict';
+
 //Create our DOM variables
 var subtotal = document.getElementById("subtotal-txt");
 var tax = document.getElementById("tax-txt");
@@ -111,6 +113,8 @@ split.onblur = function () {
 }
 function calculate_tip() {
 
+    console.log(`Tip Rate: ${tipRate.value}
+                Round: ${round}`)
     //Do not continue if there is no amounts to total
     if (parseFloat(subtotal.value) + parseFloat(tax.value) === 0){
         return
