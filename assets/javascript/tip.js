@@ -35,23 +35,25 @@ split.value = parseFloat(1).toFixed(0);
 preferredRound = "";
 
 //Check local storage for preferred tip rate
-if (localStorage.getItem("tipRate") !== null) {
+if (localStorage.getItem("tipRate")) {
 
     tipRate.value = localStorage.getItem("tipRate");
 }
 //Check local storage for preferred rounding option
-if (localStorage.getItem("rounding") !== null) {
+if (localStorage.getItem("rounding")) {
 
     preferredRound = localStorage.getItem("rounding")
 
-    for (var i = 0; i < rounding.length; i++) {        
+    for (var i = 0; i < rounding.length; i++) {
         if (rounding[i].value === preferredRound) {
             round = rounding[i].value
             rounding[i].checked = true;
-        }else{
+        } else {
             rounding[i].checked = false;
         }
     }
+} else {
+    rounding[0].checked = true;
 }
 //Add event listener(s)
 for (var i = 0; i < rounding.length; i++) {
@@ -59,9 +61,9 @@ for (var i = 0; i < rounding.length; i++) {
 
         round = this.value;
 
-            if(preferredRound !== round){
-                localStorage.setItem("rounding", round)
-            }
+        if (preferredRound !== round) {
+            localStorage.setItem("rounding", round)
+        }
 
         calculate_tip();
     })
@@ -116,7 +118,7 @@ function calculate_tip() {
     console.log(`Tip Rate: ${tipRate.value}
                 Round: ${round}`)
     //Do not continue if there is no amounts to total
-    if (parseFloat(subtotal.value) + parseFloat(tax.value) === 0){
+    if (parseFloat(subtotal.value) + parseFloat(tax.value) === 0) {
         return
     }
 
@@ -125,7 +127,7 @@ function calculate_tip() {
     // message.innerText = count
 
     total.value = parseFloat(parseFloat(subtotal.value) + parseFloat(tax.value)).toFixed(2);
-        
+
     let myTip = parseFloat(subtotal.value) * parseFloat(tipRate.value);
     let myGrandTotal = parseFloat(total.value) + parseFloat(myTip);
 
@@ -176,21 +178,21 @@ function calculate_tip() {
     displayPerPerson.innerText = myPerPerson;
 
     //Only display the per person amount when appropriate   
-    if(split.value > "1"){
+    if (split.value > "1") {
         displayPerPersonSection.classList.remove("display_none");
-        
-    }else{
+
+    } else {
         displayPerPersonSection.classList.add("display_none");
     }
 
     //Determine effective tip rate resulting from above rounding
-    var myEffectiveRate = parseFloat(myTip/subtotal.value).toFixed(2) * 100
+    var myEffectiveRate = parseFloat(myTip / subtotal.value).toFixed(2) * 100
 
-    if(!isNaN(myEffectiveRate)){
+    if (!isNaN(myEffectiveRate)) {
         effectiveRate.innerText = "Effective Tip Rate: " + parseFloat(myEffectiveRate).toFixed(2) + "%"
     }
-    
-    
+
+
     //For testing, in case the totals don't foot correctly
     // if ((parseFloat(total.value) + parseFloat(myTip)).toFixed(2) != parseFloat(myGrandTotal) || (parseFloat(parseFloat(myPerPerson) * parseFloat(split.value)).toFixed(2) != parseFloat(myGrandTotal))){
 
@@ -210,18 +212,18 @@ xhr.onreadystatechange = function () {
     var DONE = 4; // readyState 4 means the request is done.
     var OK = 200; // status 200 is a successful return.
     if (xhr.readyState === DONE) {
-      if (xhr.status === OK) {
-        //console.log(xhr.responseText);         
-        joke = JSON.parse(xhr.response)     
-        //alert(joke.content)
-        displayJoke.innerText = joke.content;
-        console.log(joke)
+        if (xhr.status === OK) {
+            //console.log(xhr.responseText);         
+            joke = JSON.parse(xhr.response)
+            //alert(joke.content)
+            displayJoke.innerText = joke.content;
+            console.log(joke)
 
-       jokeDiv.classList.remove("display_none");
-       jokeDiv.classList.add("animate-fadeIn");
-        
-      } else {
-        console.log('Error: ' + xhr.status); // An error occurred during the request.
-      }
+            jokeDiv.classList.remove("display_none");
+            jokeDiv.classList.add("animate-fadeIn");
+
+        } else {
+            console.log('Error: ' + xhr.status); // An error occurred during the request.
+        }
     }
-  };
+};
